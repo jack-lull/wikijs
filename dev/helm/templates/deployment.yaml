@@ -23,9 +23,33 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-        - name: delete-favicon
+        - name: delete-favicons
           command: [ "sh" ]
-          args: [ " -c ", "rm -f wiki/assets/favicon.ico" ]
+          args: [ " -c ", "rm -f wiki/assets/favicon.ico", "rm -f wiki/assets/favicons/*" ]
+        - name: install-android-chrome-192x192.png
+          command:
+          - curl
+          - k
+          - -L
+          - https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png
+          - -o
+          - /wiki/assets/favicons/android-chrome-192x192.png
+        - name: install-favicon-32x32.png
+          command:
+          - curl
+          - k
+          - -L
+          - https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon-32x32.png
+          - -o
+          - /wiki/assets/favicons/favicon-32x32.png
+        - name: install-favicon.ico
+          command:
+          - k
+          - curl
+          - -L
+          - https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon.ico
+          - -o
+          - /wiki/assets/favicon.ico
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
