@@ -44,8 +44,8 @@ spec:
           - /wiki/assets/favicons/favicon-32x32.png
         - name: install-favicon.ico
           command:
-          - -k
           - curl
+          - -k
           - -L
           - https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon.ico
           - -o
