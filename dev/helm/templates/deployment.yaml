@@ -28,7 +28,7 @@ spec:
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command: [ "sh" ]
           args: [ " -c ", "rm -f wiki/assets/favicon.ico", "rm -f wiki/assets/favicons/*" ]
-        - name: install-android-chrome-192x192.png
+        - name: install-android-chrome-192x192-png
           image: "curlimages/curl:latest"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command:
@@ -38,7 +38,7 @@ spec:
           - "https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png"
           - -o
           - /wiki/assets/favicons/android-chrome-192x192.png
-        - name: install-favicon-32x32.png
+        - name: install-favicon-32x32-png
           image: "curlimages/curl:latest"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command:
@@ -48,7 +48,7 @@ spec:
           - "https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon-32x32.png"
           - -o
           - /wiki/assets/favicons/favicon-32x32.png
-        - name: install-favicon.ico
+        - name: install-favicon-ico
           image: "curlimages/curl:latest"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command:
