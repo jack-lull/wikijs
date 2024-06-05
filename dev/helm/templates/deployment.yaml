@@ -29,7 +29,7 @@ spec:
         - name: install-android-chrome-192x192.png
           command:
           - curl
-          - k
+          - -k
           - -L
           - https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png
           - -o
@@ -37,14 +37,14 @@ spec:
         - name: install-favicon-32x32.png
           command:
           - curl
-          - k
+          - -k
           - -L
           - https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon-32x32.png
           - -o
           - /wiki/assets/favicons/favicon-32x32.png
         - name: install-favicon.ico
           command:
-          - k
+          - -k
           - curl
           - -L
           - https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon.ico
