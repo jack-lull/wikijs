@@ -38,9 +38,7 @@ spec:
           command:
           - sh
           - -c
-          - rm
-          - -f
-          - /wiki/assets/favicons/*
+          - rm -f /wiki/assets/favicons/*
         - name: install-android-chrome-192x192-png
           image: "curlimages/curl:latest"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
