@@ -37,36 +37,36 @@ spec:
           - rm
           - -f
           - /wiki/assets/favicons/8
-        - name: install-android-chrome-192x192-png
-          image: "curlimages/curl:latest"
-          imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
-          command:
-          - curl
-          - -k
-          - -L
-          - "https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png"
-          - -o
-          - /wiki/assets/favicons/android-chrome-192x192.png
-        - name: install-favicon-32x32-png
-          image: "curlimages/curl:latest"
-          imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
-          command:
-          - curl
-          - -k
-          - -L
-          - "https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon-32x32.png"
-          - -o
-          - /wiki/assets/favicons/favicon-32x32.png
-        - name: install-favicon-ico
-          image: "curlimages/curl:latest"
-          imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
-          command:
-          - curl
-          - -k
-          - -L
-          - "https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon.ico"
-          - -o
-          - /wiki/assets/favicon.ico
+        # - name: install-android-chrome-192x192-png
+          # image: "curlimages/curl:latest"
+          # imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
+          # command:
+          # - curl
+          # - -k
+          # - -L
+          # - "https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png"
+          # - -o
+          # - /wiki/assets/favicons/android-chrome-192x192.png
+        # - name: install-favicon-32x32-png
+          # image: "curlimages/curl:latest"
+          # imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
+          # command:
+          # - curl
+          # - -k
+          # - -L
+          # - "https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon-32x32.png"
+          # - -o
+          # - /wiki/assets/favicons/favicon-32x32.png
+        # - name: install-favicon-ico
+          # image: "curlimages/curl:latest"
+          # imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
+          # command:
+          # - curl
+          # - -k
+          # - -L
+          # - "https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon.ico"
+          # - -o
+          # - /wiki/assets/favicon.ico
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
