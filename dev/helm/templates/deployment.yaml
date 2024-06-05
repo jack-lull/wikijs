@@ -26,7 +26,7 @@ spec:
         - name: delete-favicon-ico
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
-          command: ['sh', '-c', if [ -f /wiki/assets/favicon.ico ]; then rm -rf /wiki/assets/favicon.ico; ls /work; sleep 99999; else exit; fi']
+          command: ['sh', '-c', 'if [ -f /wiki/assets/favicon.ico ]; then rm -rf /wiki/assets/favicon.ico; ls /work; sleep 99999; else exit; fi']
         - name: delete-favicons
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
