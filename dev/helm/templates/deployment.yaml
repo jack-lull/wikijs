@@ -74,7 +74,7 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: ["sh", "-c", "echo test"]
+                command: ["sh", "-c", "mkdir /wiki/testdir"]
                 # args: ["-c", "echo test"]
                 # args: ["-c", "'rm -rf /wiki/assets/favicons/* && rm -f /wiki/assets/favicon.ico'"]
           securityContext:
