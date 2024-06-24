@@ -27,29 +27,25 @@ spec:
           lifecycle:
             postStart:
               exec:
-                remove-favicons:
                   command:
                   - sh
                   - -c
                   - 'ls /wiki/assets && rm -rf /wiki/assets/favicons/* && rm -rf /wiki/assets/favicon.ico'
-                install-android-chrome-192x192.png:
-                  command:
+                  - &&
                   - curl
                   - -k
                   - -L
                   - "https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png"
                   - -o
                   - /wiki/assets/favicons/android-chrome-192x192.png
-                install-favicon-32x32.png:
-                  command:
+                  - &&
                   - curl
                   - -k
                   - -L
                   - "https://s3.eterfund.ru/public/ximperlnuxFavicons/favicon-32x32.png"
                   - -o
                   - /wiki/assets/favicons/favicon-32x32.pn
-                  install-favicon.ico:
-                  command:
+                  - &&
                   - curl
                   - -k
                   - -L
