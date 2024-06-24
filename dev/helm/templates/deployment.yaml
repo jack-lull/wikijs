@@ -21,14 +21,23 @@ spec:
     {{- end }}
       serviceAccountName: {{ include "wiki.serviceAccountName" . }}
       securityContext:
+      volumes:
+        - name: favicons
+          emptydir: {}
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
         - name: delete-favicon-ico
+          volumes:
+          - name: favicons
+            mountpath: /assets
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command: ["sh"]
           args: ["-c", "ls /wiki/assets/ && rm -f /wiki/assets/favicon.ico && ls /wiki/assets/"]
         - name: delete-favicons
+          volumes:
+          - name: favicons
+            mountpath: /assets
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command: ["sh"]
@@ -65,6 +74,9 @@ spec:
           # - /wiki/assets/favicon.ico
       containers:
         - name: {{ .Chart.Name }}
+          volumes:
+          - name: favicons
+            mountpath: /assets
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
