@@ -38,14 +38,14 @@ spec:
                   - "https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png"
                   - -o
                   - /wiki/assets/favicons/android-chrome-192x192.png
-                  - "&&
+                  - "&&"
                   - curl
                   - -k
                   - -L
                   - "https://s3.eterfund.ru/public/ximperlnuxFavicons/favicon-32x32.png"
                   - -o
                   - /wiki/assets/favicons/favicon-32x32.pn
-                  - "&&
+                  - "&&"
                   - curl
                   - -k
                   - -L
