@@ -22,7 +22,7 @@ spec:
       serviceAccountName: {{ include "wiki.serviceAccountName" . }}
       volumes:
         - name: favicons
-          emptydir: {}
+          emptyDir: {}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
