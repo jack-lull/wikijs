@@ -29,7 +29,7 @@ spec:
         - name: delete-favicon-ico
           volumeMounts:
           - name: favicons
-            mountPath: /assets
+            mountPath: /wiki/assets
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command: ["sh"]
@@ -37,7 +37,7 @@ spec:
         - name: delete-favicons
           volumeMounts:
           - name: favicons
-            mountPath: /assets
+            mountPath: /wiki/assets
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
           command: ["sh"]
@@ -76,7 +76,7 @@ spec:
         - name: {{ .Chart.Name }}
           volumeMounts:
           - name: favicons
-            mountPath: /assets
+            mountPath: /wiki/assets
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
