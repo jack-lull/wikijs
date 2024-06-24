@@ -20,10 +20,10 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       serviceAccountName: {{ include "wiki.serviceAccountName" . }}
-      securityContext:
       volumes:
         - name: favicons
           emptydir: {}
+      securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
         - name: delete-favicon-ico
