@@ -27,7 +27,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
         - name: delete-favicon-ico
-          volumes:
+          volumeMounts:
           - name: favicons
             mountPath: /favicons
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
@@ -35,7 +35,7 @@ spec:
           command: ["sh"]
           args: ["-c", "ls /wiki/assets/ && rm -f /wiki/assets/favicon.ico && ls /wiki/assets/"]
         - name: delete-favicons
-          volumes:
+          volumeMounts:
           - name: favicons
             mountPath: /favicons
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
@@ -74,7 +74,7 @@ spec:
           # - /wiki/assets/favicon.ico
       containers:
         - name: {{ .Chart.Name }}
-          volumes:
+          volumeMounts:
           - name: favicons
             mountPath: /favicons
           securityContext:
