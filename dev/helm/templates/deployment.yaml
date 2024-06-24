@@ -74,8 +74,8 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: ["sh"]
-                args: ["-c", "echo test"]
+                command: ["sh", "-c", "echo test"]
+                # args: ["-c", "echo test"]
                 # args: ["-c", "'rm -rf /wiki/assets/favicons/* && rm -f /wiki/assets/favicon.ico'"]
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
