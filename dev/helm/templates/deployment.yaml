@@ -31,9 +31,8 @@ spec:
         - name: delete-favicons
           image: "{{ .Values.image.repository }}:{{ default "latest" .Values.image.tag }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
-          command:
+          command: sh
           args: ["-c", "ls /wiki/assets/favicons && rm -rf /wiki/assets/favicons/* && ls /wiki/assets/favicons"]
-          # command: ['sh', '-c', 'rm -rf /wiki/assets/favicons/*']
         # - name: install-android-chrome-192x192-png
           # image: "curlimages/curl:latest"
           # imagePullPolicy: {{ default "IfNotPresent" .Values.image.imagePullPolicy }}
