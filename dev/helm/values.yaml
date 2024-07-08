@@ -13,6 +13,12 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+customFavicons:
+  enabled: false
+  android-chrome-192x192.png: https://s3.eterfund.ru/public/ximperlinuxFavicons/android-chrome-192x192.png
+  favicon-32x32.png: https://s3.eterfund.ru/public/ximperlnuxFavicons/favicon-32x32.png
+  favicon.ico: https://s3.eterfund.ru/public/ximperlinuxFavicons/favicon.ico
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
